@@ -1,5 +1,4 @@
-
-import './App.css';
+import './App.css'
 import { useAppDispatch, useAppSelector } from './hooks/redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Table } from 'react-bootstrap';
@@ -16,11 +15,6 @@ function App() {
   const [value, setValue] = useState('')
 
   const [newProduct, setNewProduct] = useState('')
-  const addProduct = () => {
-    dispatch(productAddOne(newProduct))
-    setModalShow(false)
-    setNewProduct('')
-  }
 
   const [modalShow, setModalShow] = useState(false);
 
@@ -54,7 +48,7 @@ function App() {
                 <Button variant="primary" onClick={() => setModalShow(true)}>
                   Add todo
                 </Button>
-                <AddTodo addProduct={addProduct} newProduct={newProduct} setNewProduct={setNewProduct} show={modalShow} onHide={() => setModalShow(false)}/>
+                <AddTodo newProduct={newProduct} setNewProduct={setNewProduct} show={modalShow} setModalShow={setModalShow} onHide={() => setModalShow(false)}/>
               </div>
             </div>
             <Table striped bordered hover>

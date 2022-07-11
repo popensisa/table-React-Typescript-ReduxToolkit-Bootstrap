@@ -1,12 +1,12 @@
 
-type PaginationState = {
+interface PaginationProps {
     currentPage: number
     todoPerPage: number
     indexOfFirstTodo: number
     totalTodo: number
     setPag: any
 }
-const Pagination: React.FC<PaginationState> = ({
+const Pagination: React.FC<PaginationProps> = ({
     currentPage, 
     todoPerPage, 
     indexOfFirstTodo, 
