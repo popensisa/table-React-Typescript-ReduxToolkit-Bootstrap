@@ -34,6 +34,9 @@ export const productSlice = createSlice({
         productDeleteOne(state, action) {
             state.products = state.products.filter(product => product.id !== action.payload)
         },
+        productAddOne(state, action: PayloadAction<string>) {
+            state.products.push({id: state.products.length + 1, title: action.payload, completed: false})
+        },
         productCompleted(state, action) {
             const foundProduct = state.products.find(item => item.id == action.payload.id)
             foundProduct.completed = !foundProduct.completed

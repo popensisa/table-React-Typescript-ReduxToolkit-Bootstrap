@@ -11,10 +11,20 @@ import AddTodo from './components/modal/AddTodo';
 
 function App() {
   const {products, isGot, isLoading, error} = useAppSelector(state => state.productReducer)
-  const {productDeleteOne, productAsc, productDesc, productSortLetters, productCompleted} = productSlice.actions
-  const [value, setValue] = useState('')
+  const {productDeleteOne, productAsc, productDesc, productSortLetters, productCompleted, productAddOne} = productSlice.actions
   const dispatch = useAppDispatch()
+  const [value, setValue] = useState('')
+
+  const [newProduct, setNewProduct] = useState('')
+  const addProduct = () => {
+    dispatch(productAddOne(newProduct))
+    setModalShow(false)
+    setNewProduct('')
+  }
+
   const [modalShow, setModalShow] = useState(false);
+
+
   const [pag, setPag] = useState({
     currentPage: 1,
     todoPerPage: 10,
@@ -44,7 +54,7 @@ function App() {
                 <Button variant="primary" onClick={() => setModalShow(true)}>
                   Add todo
                 </Button>
-                <AddTodo show={modalShow} onHide={() => setModalShow(false)}/>
+                <AddTodo addProduct={addProduct} newProduct={newProduct} setNewProduct={setNewProduct} show={modalShow} onHide={() => setModalShow(false)}/>
               </div>
             </div>
             <Table striped bordered hover>
@@ -62,7 +72,7 @@ function App() {
                     <td>{item.id}</td>
                     <td>{item.title}</td>
                     <td><Button onClick={() => dispatch(productCompleted(item))} variant={item.completed ? 'success' : 'danger'}></Button></td>
-                    <td><Button onClick={() => dispatch(productDeleteOne(item.id))}>Delete</Button></td>
+                    <td><Button onClick={() => dispatch(productDeleteOne(item.id))} variant='danger'>Delete</Button></td>
                   </tr>  
                 )}
               </tbody>

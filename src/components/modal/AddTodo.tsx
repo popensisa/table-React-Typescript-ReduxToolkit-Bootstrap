@@ -1,8 +1,11 @@
-import { Button, Modal } from "react-bootstrap"
+import { Button, Form, Modal } from "react-bootstrap"
 
 interface AddTodoProps {
-    show: boolean,
+    show: boolean
+    newProduct: string
+    setNewProduct: any
     onHide: any
+    addProduct: any
 }
 
 const AddTodo: React.FC<AddTodoProps> = (props) => {
@@ -16,19 +19,23 @@ const AddTodo: React.FC<AddTodoProps> = (props) => {
         >
             <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-                Modal heading
+                Add your ToDo
             </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-            <h4>Centered Modal</h4>
-            <p>
-                Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                consectetur ac, vestibulum at eros.
-            </p>
+                <Form.Label htmlFor="inputPassword5">ToDo</Form.Label>
+                <Form.Control
+                    type="text"
+                    value={props.newProduct}
+                    onChange={e => props.setNewProduct(e.target.value)}
+                />
+                <Form.Text id="passwordHelpBlock" muted>
+                    Write your todo.
+                </Form.Text>
             </Modal.Body>
             <Modal.Footer>
-            <Button onClick={props.onHide}>Close</Button>
+            <Button variant='danger' onClick={props.onHide}>Close</Button>
+            <Button onClick={props.addProduct}>Add</Button>
             </Modal.Footer>
         </Modal>
     )
