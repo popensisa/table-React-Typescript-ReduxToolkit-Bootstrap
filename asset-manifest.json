@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/table-React-Typescript-ReduxToolkit-Bootstrap/static/css/main.bcd0085c.css",
+    "main.js": "/table-React-Typescript-ReduxToolkit-Bootstrap/static/js/main.5d6d28ab.js",
+    "index.html": "/table-React-Typescript-ReduxToolkit-Bootstrap/index.html",
+    "main.bcd0085c.css.map": "/table-React-Typescript-ReduxToolkit-Bootstrap/static/css/main.bcd0085c.css.map",
+    "main.5d6d28ab.js.map": "/table-React-Typescript-ReduxToolkit-Bootstrap/static/js/main.5d6d28ab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bcd0085c.css",
+    "static/js/main.5d6d28ab.js"
+  ]
+}
